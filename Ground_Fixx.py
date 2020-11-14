@@ -1,5 +1,4 @@
 import os
-import sys
 import shutil
 from ctypes import WinDLL, WinError, get_last_error
 from stat import \
@@ -63,26 +62,21 @@ if __name__ == '__main__':
     print ('\n\tGround_fixx by RathHunt :V')
     print ('\t'+'*'*26+'\n')
 
-    path = '.'
-
     modify= input('Fix? (1 for fix / 2 for just list)\n')
-    print ('Scanning ' + os.getcwd() + '...')
+    print ('Working...')
     kernel32 = WinDLL('kernel32', use_last_error=True)
 
-    cont = 0
+    path = '.'
 
     for entry in scantree(path):
         if entry.is_file() and entry.name.startswith('g') and entry.name.endswith('.exe'):
             a,s,h,r,i = myattrib(kernel32, entry)
             #print(entry.path, a,s,h,r,i)
             if s==1 and h==1:
-                cont += 1
                 print(entry.path)
                 if(modify == '1'):
                     print('\t' + entry.path + ' -> ' + entry.path[:-len(entry.name)] + entry.name [1:])
                     myattrib(kernel32, entry, a=None, s=False, h=False, r=None, i=None)
                     shutil.move(entry.path, entry.path[:-len(entry.name)] + entry.name [1:])
-    if not cont:
-        print("Nothing Found")
 
     input('Completed, press any key to exit')
