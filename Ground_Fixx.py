@@ -63,7 +63,7 @@ if __name__ == '__main__':
     print ('\n\tGround_fixx by RathHunt :V')
     print ('\t'+'*'*26+'\n')
 
-    path = input('Enter locations to scan separared by spaces exmaple[E:/ D:/work/]\n')
+    path = input('Enter locations to scan separated by spaces example[E:/ D:/work/]\n')
 
     path = path.split(' ')
 
