@@ -1,4 +1,4 @@
-Ground_Fixx is a (simple) program for fixing out the mess tath leaves behind te Ground virus
+Ground_Fixx is a (simple) program for fixing out the mess that leaves behind the Ground virus
 
 such "mess" is described as follows:
 -files are renamed by placing a "g" in front so calling them from shortcut or command line shows a non-exist error
